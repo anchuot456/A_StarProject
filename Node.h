@@ -6,6 +6,7 @@
 #include "City.h"
 
 typedef struct Node{
-
+    City* city;
+    Node* next;
 }Node;
 #endif //__Node_H__
