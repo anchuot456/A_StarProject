@@ -7,10 +7,12 @@
 
 typedef struct Node{
     City* city;
-    Node* next;
+    struct Node* next;
 }Node;
+
 typedef struct List{
     Node* head;
+    int size;
 }List;
 
 /**
@@ -41,4 +43,35 @@ void addNode(List* l, Node* node);
  * @param city the name of removed city node
 */
 void removeNode(List* l, char* city);
+
+/**
+ * check if the list is empty or not
+ * @param l the checked list
+ * @return 1 if list is empty
+ * @return 0 otherwise
+*/
+int isEmpty(List* l);
+
+/**
+ * check if city exist in List
+ * @param l the list store cities
+ * @param city the checked city
+ * @return node if city is in list
+ * @return 0 otherwise
+*/
+Node* isInList(List* l, char* city);
+
+/**
+ * find the node has smallest f value
+ * @param l the list store nodes
+ * @return the smallest node in list
+ * @return 0 list is empty
+*/
+Node* findSmallestNode(List* l);
+
+/**
+ * display all node of List and their g value
+ * @param l the displayed list
+*/
+void displayList(List* l);
 #endif //__Node_H__

@@ -4,19 +4,21 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+typedef struct Neighbors{
+    char** neighbors;
+    int* distance;
+    int size;
+}Neighbors;
+
 typedef struct City{
     char* name;
     int x;
     int y;
     int g;
     int h;
-    Neighbors neighbors;
+    int f;
+    Neighbors* neighbors;
 }City;
-
-typedef struct Neighbors{
-    char** neighbors;
-    int** distance;
-}Neighbors;
 
 /**
  * create a new city
@@ -33,7 +35,7 @@ City* createCity(char* name, int x, int y);
  * @return a new empty list if memory allocation OK
  * @return 0 otherwise
 */
-Neighbors createNeighbors();
+Neighbors* createNeighbors();
 
 /**
  * add a new city into the neighbor list
